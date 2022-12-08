@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 import com.bankaya.techtest.demo.commons.dtos.LocationEncounterDTO;
 import com.bankaya.techtest.demo.model.LocationEncounter;
 
-@Mapper(componentModel = "spring")
-public interface LocationEncountersMapper {
+@Mapper(componentModel = "spring", uses = { ReferenceMapper.class, VersionDetailLocationEncounterMapper.class })
+public interface LocationEncounterMapper {
 
   LocationEncounter mapToEntity(LocationEncounterDTO locationEncounterDTO);
 

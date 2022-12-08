@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import com.bankaya.techtest.demo.commons.dtos.PokemonDTO;
 import com.bankaya.techtest.demo.model.Pokemon;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { AbilityMapper.class, HeldItemMapper.class })
 public interface PokemonMapper {
 
   Pokemon mapToEntity(PokemonDTO pokemonDTO);

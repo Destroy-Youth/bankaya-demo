@@ -3,17 +3,19 @@ package com.bankaya.techtest.demo.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bankaya.techtest.demo.commons.dtos.AbilityDTO;
 import com.bankaya.techtest.demo.commons.dtos.HeldItemDTO;
 import com.bankaya.techtest.demo.commons.dtos.LocationEncounterDTO;
-import com.bankaya.techtest.demo.mappers.LocationEncountersMapper;
+import com.bankaya.techtest.demo.mappers.LocationEncounterMapper;
 import com.bankaya.techtest.demo.mappers.PokemonMapper;
 import com.bankaya.techtest.demo.model.LocationEncounter;
 import com.bankaya.techtest.demo.model.Pokemon;
 import com.bankaya.techtest.demo.repository.PokemonClient;
 import com.bankaya.techtest.demo.service.IPokemonService;
 
+@Service
 public class PokemonService implements IPokemonService {
 
   @Autowired
@@ -21,7 +23,7 @@ public class PokemonService implements IPokemonService {
   @Autowired
   private PokemonMapper pokemonMapper;
   @Autowired
-  private LocationEncountersMapper locationEncountersMapper;
+  private LocationEncounterMapper locationEncountersMapper;
 
   @Override
   public List<AbilityDTO> getPokemonAbilities(String pokemonName) {

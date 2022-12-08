@@ -15,19 +15,19 @@ import com.bankaya.techtest.demo.model.Pokemon;
 @FeignClient(value = Constants.POKEMON_API, url = Constants.POKEMON_API_URL)
 public interface PokemonClient {
 
-  @GetMapping(produces = "application/json", value = "/pokemon/{pokemon}")
+  @GetMapping(produces = "application/json", value = "pokemon/{pokemon}", headers = { Constants.USER_AGENT_HEADER })
   public Pokemon getPokemon(@PathVariable("pokemon") String pokemon);
 
-  @GetMapping(produces = "application/json", value = "/pokemon/{pokemonId}")
+  @GetMapping(produces = "application/json", value = "pokemon/{pokemonId}", headers = { Constants.USER_AGENT_HEADER })
   public Pokemon getPokemon(@PathVariable("pokemonId") Integer pokemon);
 
-  @GetMapping(produces = "application/json", value = "/ability/{id}")
+  @GetMapping(produces = "application/json", value = "ability/{id}", headers = { Constants.USER_AGENT_HEADER })
   public List<Ability> getPokemonAbility(@PathVariable("id") String abilityId);
 
-  @GetMapping(produces = "application/json", value = "/item/{id}")
+  @GetMapping(produces = "application/json", value = "item/{id}", headers = { Constants.USER_AGENT_HEADER })
   public List<Item> getHeldItem(@PathVariable("id") String itemId);
 
-  @GetMapping(produces = "application/json", value = "/{id}/encounters")
+  @GetMapping(produces = "application/json", value = "{id}/encounters", headers = { Constants.USER_AGENT_HEADER })
   public List<LocationEncounter> getPokemonLocationEncounters(@PathVariable("id") Integer pokemonId);
 
 }
