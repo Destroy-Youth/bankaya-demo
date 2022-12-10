@@ -27,7 +27,8 @@ public interface PokemonClient {
   @GetMapping(produces = "application/json", value = "item/{id}", headers = { Constants.USER_AGENT_HEADER })
   public List<Item> getHeldItem(@PathVariable("id") String itemId);
 
-  @GetMapping(produces = "application/json", value = "{id}/encounters", headers = { Constants.USER_AGENT_HEADER })
+  @GetMapping(produces = "application/json", value = "pokemon/{id}/encounters", headers = {
+      Constants.USER_AGENT_HEADER })
   public List<LocationEncounter> getPokemonLocationEncounters(@PathVariable("id") Integer pokemonId);
 
 }
