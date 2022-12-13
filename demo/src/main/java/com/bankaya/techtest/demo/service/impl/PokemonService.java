@@ -3,7 +3,6 @@ package com.bankaya.techtest.demo.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.bankaya.techtest.demo.commons.Constants;
@@ -14,21 +13,18 @@ import com.bankaya.techtest.demo.mappers.LocationEncounterMapper;
 import com.bankaya.techtest.demo.mappers.PokemonMapper;
 import com.bankaya.techtest.demo.model.LocationEncounter;
 import com.bankaya.techtest.demo.model.Pokemon;
-import com.bankaya.techtest.demo.repository.PokemonClient;
+import com.bankaya.techtest.demo.repository.IPokemonClient;
 import com.bankaya.techtest.demo.service.IPokemonService;
 
 @Service
 public class PokemonService implements IPokemonService {
 
   @Autowired
-  private PokemonClient pokemonClient;
+  private IPokemonClient pokemonClient;
   @Autowired
   private PokemonMapper pokemonMapper;
   @Autowired
   private LocationEncounterMapper locationEncountersMapper;
-
-  @Value("${api.baseUri}")
-  private String baseUri;
 
   @Override
   public List<AbilityDTO> getPokemonAbilities(String pokemonName) {
@@ -90,7 +86,7 @@ public class PokemonService implements IPokemonService {
   }
 
   private String changeBaseUri(String uri) {
-    return uri.replace(Constants.POKEMON_API_URL, baseUri);
+    return uri.replace(Constants.POKEMON_API_URL, Constants.BASE_URI);
   }
 
 }

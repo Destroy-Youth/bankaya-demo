@@ -13,7 +13,7 @@ import com.bankaya.techtest.demo.model.LocationEncounter;
 import com.bankaya.techtest.demo.model.Pokemon;
 
 @FeignClient(value = Constants.POKEMON_API, url = Constants.POKEMON_API_URL)
-public interface PokemonClient {
+public interface IPokemonClient {
 
   @GetMapping(produces = "application/json", value = "pokemon/{pokemon}", headers = { Constants.USER_AGENT_HEADER })
   public Pokemon getPokemon(@PathVariable("pokemon") String pokemon);

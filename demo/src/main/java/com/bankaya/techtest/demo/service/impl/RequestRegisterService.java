@@ -18,7 +18,7 @@ public class RequestRegisterService implements IRequestRegisterService {
   @Override
   public void registerRequest(String method, String ip) {
     Register register = new Register();
-    register.setIp("method");
+    register.setIp(ip);
     register.setMethod(method);
     register.setRequestDate(new Date());
     registerRepository.save(register);
